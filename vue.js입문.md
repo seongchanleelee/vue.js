@@ -124,7 +124,7 @@
    "rules": {"space-before-function-paren": "off"}
      // 붙여넣기
    ```
-views 폴더 내에 있는 vue파일 
+   views 폴더 내에 있는 vue파일 
 
 - views에 존제하는 .vue파일은 화면전체를 차지하는 component가 들어온다 보면 됨(하나의 페이지를 정의한다 생각하자)
 
@@ -138,13 +138,20 @@ components폴더 내에 있는 vue파일
 - components폴더 내에 있는 component는
 
 
-
 views폴더내에 vue파일을 만들때
+
+- 이와같은 꼴로 만듬(vue치고 tap 누르면 자동완성됨)
 
 ```html
 <template>
 <!-- html태그? 요소는 다 template에 넣어줌 -->
+  <div>
+  
+</div>
 </template>
+<div>
+  <h1>Hello {{userName}}</h1>
+</div>
 
 <script>
 export default {
@@ -155,7 +162,125 @@ export default {
   }
 }
 </script>
+
+<style>
+  
+</style>
 ```
+
+- vue파일 내에 html요소를 만들땐 큰틀(위 예제에선 div)내에 만든다.
+
+- 단방향 데이터 바인딩 string
+
+  - js요소로 만든  key를 가지고 html요소로 이용 가능함을 얘기함.
+
+  - ```html
+    위 예제로 본다면 이부분
+    <h1>Hello {{userName}}</h1>
+
+    ```
+
+- 단방향 데이터 바인딩 html
+
+  - 자바스크립트요소 내에 html문법을 value로 하여 key를 지정해줌
+
+  -  ```js
+    export default {
+      data() {
+        return {
+          htmlString: '<p style="color:red;">빨간색 문자</p>'
+        }
+      },
+     ```
+
+  - html요소 내에 바인딩 해줌
+
+  - ```html
+      <!-- html바인딩을 했을경우 -->
+      <div v-html="htmlString"></div>
+    ```
+
+- 양방향 데이터 바인딩
+
+  - ex) input태그같은 경우 양방향 바인딩이 필요함.
+
+  - 우선 양방향 바인딩을 위한 js요소에 string을 value로 하는 key를 설정해줌
+
+  - ```js
+    export default {
+      data() {
+        return {
+          userId: ''
+        }
+      }
+    }
+    ```
+
+  - html요소에 v-model을 이용하여 바인딩해줌(참고로 v-model은 vue에서 제공하는 양방향 바인딩  메서드이다.)
+
+  - ```html
+    <input type="text" v-model="userId" />
+        <p>{{ userId }}</p>
+    ```
+
+  - 이를 p태그가 아닌 event를 이용하여 표현한다면, 우선 event를 위한 함수를 methods 라는 key값의 value 안에 지정한다.
+
+  - ```js
+    export default {
+      data() {
+        return {
+          userId: ''
+        }
+      },
+      setup() {},
+      created() {},
+      mounted() {},
+      unmounted() {},
+      methods: {
+        myFunction() {
+          // this는 object안에 정의된 key값을 지정할때 사용
+          console.log(this.userId)
+        }
+      }
+    }
+    ```
+
+  - 이후 button태그를 만들어 클릭시 함수가 선언되는지 확인하고, 함수내에 userId라는 key값이 양방향 바인딩 되는지 확인해보자
+
+  - ```html
+    <button @click="myFunction">클릭</button>
+    ```
+
+  - ​
+
+화면상에 띄워주는 방법
+
+- views/{vue파일}을 화면상에 띄워주기 위해선 router처리를 해주어야함
+- router/index.js내에 routes 란 배열내에 path,name,component를 가진 object({})를 지정해줘야함
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #css 적용시 팁
 
@@ -175,4 +300,7 @@ export default {
   </style>
   ```
 
-- ​
+
+
+
+
