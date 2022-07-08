@@ -128,11 +128,11 @@
 
 - views에 존제하는 .vue파일은 화면전체를 차지하는 component가 들어온다 보면 됨(하나의 페이지를 정의한다 생각하자)
 
-<h3>components폴더 내에 있는 vue파일<h3>
+<h3>components폴더 내에 있는 vue파일</h3>
 
 - 이 안에 있는 component(.vue파일)는 재사용이 가능한 component는 components라는 폴더 내에 만들자
 
-<h3>파일 네임에 대한 룰
+<h3>파일 네임에 대한 룰</h3>
 
 - 화면전체 페이지에 해당하는 component는(views폴더 내에 있는 component) 네이밍 뒤에 View라는 이름을 붙여준다
 - components폴더 내에 있는 component는
