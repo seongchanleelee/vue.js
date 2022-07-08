@@ -124,21 +124,21 @@
    "rules": {"space-before-function-paren": "off"}
      // 붙여넣기
    ```
-   views 폴더 내에 있는 vue파일 
+   <h3>views 폴더 내에 있는 vue파일</h3> 
 
 - views에 존제하는 .vue파일은 화면전체를 차지하는 component가 들어온다 보면 됨(하나의 페이지를 정의한다 생각하자)
 
-components폴더 내에 있는 vue파일
+<h3>components폴더 내에 있는 vue파일<h3>
 
 - 이 안에 있는 component(.vue파일)는 재사용이 가능한 component는 components라는 폴더 내에 만들자
 
-파일 네임에 대한 룰
+<h3>파일 네임에 대한 룰
 
 - 화면전체 페이지에 해당하는 component는(views폴더 내에 있는 component) 네이밍 뒤에 View라는 이름을 붙여준다
 - components폴더 내에 있는 component는
 
 
-views폴더내에 vue파일을 만들때
+<h3>views폴더내에 vue파일을 만들때</h3>
 
 - 이와같은 꼴로 만듬(vue치고 tap 누르면 자동완성됨)
 
@@ -185,7 +185,8 @@ export default {
   - 자바스크립트요소 내에 html문법을 value로 하여 key를 지정해줌
 
   -  ```js
-    export default {
+       export default {
+       ```
       data() {
         return {
           htmlString: '<p style="color:red;">빨간색 문자</p>'
@@ -198,7 +199,7 @@ export default {
   - ```html
       <!-- html바인딩을 했을경우 -->
       <div v-html="htmlString"></div>
-    ```
+     ```
 
 - 양방향 데이터 바인딩
 
@@ -253,7 +254,7 @@ export default {
 
   - ​
 
-화면상에 띄워주는 방법
+<h3>화면상에 띄워주는 방법</h3>
 
 - views/{vue파일}을 화면상에 띄워주기 위해선 router처리를 해주어야함
 - router/index.js내에 routes 란 배열내에 path,name,component를 가진 object({})를 지정해줘야함
